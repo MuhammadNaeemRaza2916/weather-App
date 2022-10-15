@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <title>Weather</title>
+</head>
+
+<body id="bgPic" class="img-fluid">
+    <h1>The Weather App</h1>
+    <fieldset id="f1">
+        <form onsubmit="getWeather(); return false">
+
+            <input type="text" id="cityName" placeholder="Enter Country Or City Name">
+            <button type="submit"><i class="bi bi-search"></i></button>
+    
+        </form>
+    
+    </fieldset>
+     
+
+
+
+        
+        <span id="weathericon"></span>
+        <div id="result1"></div>
+            
+        
+        <div id="result2"></div>
+        <div id="result3"></div>
+
+        <span id="d1"></span>
+        <span id="d2"></span>
+        <span id="d3"></span>
+        <span id="d4"></span>
+        <span id="d5"></span>
+        <span id="d6"></span>
+
+    
+
+    <!-- <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script> -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script>
+
+        let getWeather = () => {
+
+
+            let city = document.querySelector("#cityName").value;
+
+            axios.get(`https://api.openweathermap.org/data/2.5/weather?units=metric&appid=e0f99c494c2ce394a18cc2fd3f100543&q=${city}`)
+                .then(function (response) {
+                    // handle success
+                    console.log("response is success");
+                    console.log(response.data);
+
+                    document.querySelector("#result1").innerHTML =
+                        `<span>${response.data.main.temp}°C </span>`
+
+                    document.querySelector("#result2").innerHTML =
+                        `<span>${response.data.name} </span>`
+
+                    document.querySelector("#result3").innerHTML =
+                        `<span>Feels Like: ${response.data.main.feels_like} </span>`
+
+                    document.querySelector("#d1").innerHTML =
+                        `<span>Humidity: ${response.data.main.humidity} </span>`
+
+                    document.querySelector("#d2").innerHTML =
+                        `<span>Pressure: ${response.data.main.pressure} </span>`
+
+                    document.querySelector("#d3").innerHTML =
+                        `<span>Temp_max: ${response.data.main.temp_max} </span>`
+
+                    document.querySelector("#d4").innerHTML =
+                        `<span>Temp_min: ${response.data.main.temp_min} </span>`
+
+                    document.querySelector("#d5").innerHTML =
+                        `<span>Description: ${response.data.weather[0].description} </span>`
+
+                    document.querySelector("#d6").innerHTML =
+                        `<span>Wind: ${response.data.wind.speed} </span>`
+
+
+                    if (response.data.main.temp >= 1 && response.data.main.temp <= 5) {
+                        document.querySelector("#bgPic").style =
+                            `background-image: url('weather1.jpg');color:white`
+                        document.querySelector("#weathericon").innerHTML =
+                            `<i class="bi bi-snow3"></i>`
+                    }
+
+                    else if (response.data.main.temp >= 6 && response.data.main.temp <= 10) {
+                        document.querySelector("#bgPic").style =
+                            `background-image: url('weather2.jpg')`
+                        document.querySelector("#weathericon").innerHTML =
+                            `<i class="bi bi-cloud-sleet-fill"></i>`
+                    }
+
+                    else if (response.data.main.temp >= 11 && response.data.main.temp <= 15) {
+                        document.querySelector("#weathericon").innerHTML =
+                            `<i class="bi bi-cloud-lightning-rain-fill"></i>`
+                        document.querySelector("#bgPic").style =
+                            `background-image: url('weather3.jpg');color:white`
+
+                    }
+                    else if (response.data.main.temp >= 16 && response.data.main.temp <= 20) {
+                        document.querySelector("#bgPic").style =
+                            `background-image: url('weather4.jpg')`
+                        document.querySelector("#weathericon").innerHTML =
+                            `<i class="bi bi-cloud-hail-fill"></i>`
+                    }
+                    else if (response.data.main.temp >= 21 && response.data.main.temp <= 25) {
+                        document.querySelector("#bgPic").style =
+                            `background-image: url('weather5.jpg'); color:white`
+                        document.querySelector("#weathericon").innerHTML =
+                            `<i class="bi bi-cloud-haze-fill"></i>`
+                    }
+                    else if (response.data.main.temp >= 26 && response.data.main.temp <= 30) {
+                        document.querySelector("#bgPic").style =
+                            `background-image: url('weather6.jpg')`
+                        document.querySelector("#weathericon").innerHTML =
+                            `<i class="bi bi-cloud-haze-fill"></i>`
+                    }
+                    else {
+                        document.querySelector("#bgPic").style =
+                            `background-image: url('weather7.jpg')`
+                        document.querySelector("#weathericon").innerHTML =
+                            `<i class="bi bi-brightness-high-fill"></i>`
+                    }
+                })
+                .catch(function (error) {
+                    // handle error
+                    console.log(error);
+                });
+        }
+    </script>
+</body>
+
+</html>
