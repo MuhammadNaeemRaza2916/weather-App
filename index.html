@@ -75,10 +75,10 @@
                         `<span>Feels Like: ${Math.round(response.data.main.feels_like)}°C </span>`
 
                     document.querySelector("#d1").innerHTML =
-                        `<span>Humidity: ${response.data.main.humidity} </span>`
+                        `<span>Humidity: ${response.data.main.humidity}% </span>`
 
                     document.querySelector("#d2").innerHTML =
-                        `<span>Pressure: ${response.data.main.pressure} </span>`
+                        `<span>Pressure: ${Math.round(response.data.main.pressure/29.92)} Hg </span>`
 
                     document.querySelector("#d3").innerHTML =
                         `<span>Temp_max: ${Math.round(response.data.main.temp_max)}°C </span>`
@@ -90,7 +90,7 @@
                         `<span>Description: ${response.data.weather[0].description} </span>`
 
                     document.querySelector("#d6").innerHTML =
-                        `<span>Wind: ${response.data.wind.speed} </span>`
+                        `<span>Wind: ${Math.round(response.data.wind.speed)} m/s </span>`
 
                     document.querySelector("#d7").innerHTML =
                         `<span>${moment(response.data.dt*1000).format('MMMM Do YYYY, h:mm:ss a')} </span>`
