@@ -73,8 +73,8 @@ button{
     text-shadow: gray;
     text-decoration-style: double;
     font-size: larger;
-    margin-top: 320px;
-    margin-left: 640px;
+    margin-top: 310px;
+    margin-left: 633px;
     width: 450px;
     text-align: center;
     border-color: transparent;
@@ -85,7 +85,7 @@ button{
     text-shadow: gray;
     text-decoration-style: double;
     font-size: larger;
-    margin-top: 350px;
+    margin-top: 340px;
     margin-left: 675px;
     width: 450px;
     text-align: center;
@@ -149,4 +149,20 @@ button{
     position: absolute;
     margin-top: 500px;
     margin-left: 520px;
+}
+#d7{    
+    text-shadow: gray;
+    text-decoration-style: double;
+    font-size: larger;
+    position: absolute;
+    margin-top: 370px;
+    margin-left: 823px;
+}
+#d8{    
+    text-shadow: gray;
+    text-decoration-style: double;
+    font-size: larger;
+    position: absolute;
+    margin-top: 380px;
+    margin-left: 570px;
 }
