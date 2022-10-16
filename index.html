@@ -72,7 +72,7 @@
                         `<span>${response.data.name} </span>`
 
                     document.querySelector("#result3").innerHTML =
-                        `<span>Feels Like: ${response.data.main.feels_like} </span>`
+                        `<span>Feels Like: ${Math.round(response.data.main.feels_like)}°C </span>`
 
                     document.querySelector("#d1").innerHTML =
                         `<span>Humidity: ${response.data.main.humidity} </span>`
@@ -81,10 +81,10 @@
                         `<span>Pressure: ${response.data.main.pressure} </span>`
 
                     document.querySelector("#d3").innerHTML =
-                        `<span>Temp_max: ${response.data.main.temp_max} </span>`
+                        `<span>Temp_max: ${Math.round(response.data.main.temp_max)}°C </span>`
 
                     document.querySelector("#d4").innerHTML =
-                        `<span>Temp_min: ${response.data.main.temp_min} </span>`
+                        `<span>Temp_min: ${Math.round(response.data.main.temp_min)}°C </span>`
 
                     document.querySelector("#d5").innerHTML =
                         `<span>Description: ${response.data.weather[0].description} </span>`
